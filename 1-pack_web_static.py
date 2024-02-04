@@ -9,7 +9,7 @@ from datetime import datetime
 def do_pack():
     """This function generates a tgz archive"""
     try:
-        datetime = datetime.now().strftime("%Y%m%d%H%M%S")
+        date_time = datetime.now().strftime("%Y%m%d%H%M%S")
         archive_path = "versions/web_static_{}.tgz".format(date_time)
 
         local("mkdir -p versions")
