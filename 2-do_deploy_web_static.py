@@ -23,7 +23,7 @@ def do_deploy(archive_path):
     name = file_name.split(".")[0]
 
     # Define the directories
-    remoth_path = "/data/web_static/releases/{}/".format(name)
+    remote_path = "/data/web_static/releases/{}/".format(name)
 
     # Create directory
     run("mkdir -p {}".format(remote_path))
