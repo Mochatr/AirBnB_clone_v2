@@ -15,11 +15,12 @@ class State(BaseModel, Base):
 
     __tablename__ = 'states'
 
-    name = Column(String(128), nullable=False)
-    cities = relationship("City",  backref="state", cascade="delete")
+    name = Column("name", String(128), nullable=False)
+    cities = relationship("City",  backref="state", cascade="all, delete")
 
     if getenv("HBNB_TYPE_STORAGE") != "db":
-        def city_instances(self):
+        @property
+        def cities(self):
             """list of City instances with state_id
             equals to the current State.id for FileStorage"""
             city_instances = []
